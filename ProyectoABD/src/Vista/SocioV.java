@@ -1,4 +1,4 @@
-package Vision.Socios;
+package Vista;
 
 public class SocioV extends javax.swing.JFrame {
 
@@ -148,6 +148,8 @@ public class SocioV extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(SocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
