@@ -23,10 +23,13 @@ public class SocioV extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         PanelT = new javax.swing.JDesktopPane();
         jMenuBarSocios = new javax.swing.JMenuBar();
-        MenuRS = new javax.swing.JMenu();
+        UpdateDeleteS = new javax.swing.JMenu();
         MenuRS1 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         MenuCuota = new javax.swing.JMenu();
+        MenuPago = new javax.swing.JMenuItem();
         MenuVer = new javax.swing.JMenu();
+        MenuTabla = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -67,11 +70,11 @@ public class SocioV extends javax.swing.JFrame {
         jMenuBarSocios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jMenuBarSocios.setRequestFocusEnabled(false);
 
-        MenuRS.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        MenuRS.setText("Registrar Socios");
-        MenuRS.addActionListener(new java.awt.event.ActionListener() {
+        UpdateDeleteS.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        UpdateDeleteS.setText("Registrar Socios");
+        UpdateDeleteS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuRSActionPerformed(evt);
+                UpdateDeleteSActionPerformed(evt);
             }
         });
 
@@ -81,16 +84,27 @@ public class SocioV extends javax.swing.JFrame {
                 MenuRS1ActionPerformed(evt);
             }
         });
-        MenuRS.add(MenuRS1);
+        UpdateDeleteS.add(MenuRS1);
 
-        jMenuBarSocios.add(MenuRS);
+        jMenuItem5.setText("Actualizar/Eliminar Socio");
+        UpdateDeleteS.add(jMenuItem5);
+
+        jMenuBarSocios.add(UpdateDeleteS);
 
         MenuCuota.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         MenuCuota.setText("Resgistrar Cuota");
+
+        MenuPago.setText("Realizar pago");
+        MenuCuota.add(MenuPago);
+
         jMenuBarSocios.add(MenuCuota);
 
         MenuVer.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         MenuVer.setText("Ver Socios");
+
+        MenuTabla.setText("Ver Tabla ");
+        MenuVer.add(MenuTabla);
+
         jMenuBarSocios.add(MenuVer);
 
         setJMenuBar(jMenuBarSocios);
@@ -115,9 +129,9 @@ public class SocioV extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     //Actions
-    private void MenuRSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRSActionPerformed
+    private void UpdateDeleteSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDeleteSActionPerformed
 
-    }//GEN-LAST:event_MenuRSActionPerformed
+    }//GEN-LAST:event_UpdateDeleteSActionPerformed
 
     private void MenuRS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRS1ActionPerformed
        ResgistrarS rs = new ResgistrarS();
@@ -163,10 +177,12 @@ public class SocioV extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu MenuCuota;
-    private javax.swing.JMenu MenuRS;
+    private javax.swing.JMenuItem MenuPago;
     private javax.swing.JMenuItem MenuRS1;
+    private javax.swing.JMenuItem MenuTabla;
     private javax.swing.JMenu MenuVer;
     private javax.swing.JDesktopPane PanelT;
+    private javax.swing.JMenu UpdateDeleteS;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -177,5 +193,6 @@ public class SocioV extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }

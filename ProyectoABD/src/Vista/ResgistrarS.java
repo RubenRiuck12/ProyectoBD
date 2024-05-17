@@ -167,6 +167,11 @@ public class ResgistrarS extends javax.swing.JInternalFrame {
         );
 
         BtnGuardar.setText("Guardar");
+        BtnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnGuardarActionPerformed(evt);
+            }
+        });
 
         BtnLimpiar.setText("Limpiar");
 
@@ -213,6 +218,10 @@ public class ResgistrarS extends javax.swing.JInternalFrame {
     private void FormatFechaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FormatFechaNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FormatFechaNActionPerformed
+
+    private void BtnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnGuardarActionPerformed
+        
+    }//GEN-LAST:event_BtnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

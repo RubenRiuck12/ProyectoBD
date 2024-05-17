@@ -6,6 +6,8 @@ package Control;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
@@ -13,36 +15,30 @@ import javax.swing.JOptionPane;
  *
  * @author Ruben
  */
-//"192.168.1.76" - "3306" - "pruebaC" - "primero" - "123456"
-public class ConexionUsuario {
+public class RegistrarSocio {
+    
     Connection con;
     
     private String host = "192.168.1.70";
     private String port = "3306";
-    private String dbName = "pruebaC";
-    private String userName;
-    private String password;
-
-    public ConexionUsuario(String userName, String password){
-        this.userName = userName;
-        this.password = password;
-        try{
+    private String dbName = "PruebaBD";
+    private String userName = "primero";
+    private String password = "123456";
+    private PreparedStatement ps = null;
+    private ResultSet rs = null;
+    
+    public void subirSocio(){
+       try{
             String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
             con = DriverManager.getConnection(url, this.userName, this.password);
             System.out.println("Conexion Exitosa ");
-            
+            ps = con.prepareStatement("INSERT INTO socio() ");  
         }catch (SQLException e){
             System.out.println("Error" + e);
             JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecta");
         }
+        
+        
     }
-    
-    
-    
-    /*
-    public static void main(String[] args) {
-        ConexionUsuario cu = new ConexionUsuario();
-    }
-    */
     
 }
