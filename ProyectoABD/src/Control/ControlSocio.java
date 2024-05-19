@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  *
  * @author Ruben
  */
-public class RegistrarSocio {
+public class ControlSocio {
     
     Connection con;
     
@@ -32,7 +32,7 @@ public class RegistrarSocio {
             String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
             con = DriverManager.getConnection(url, this.userName, this.password);
             System.out.println("Conexion Exitosa ");
-            ps = con.prepareStatement("INSERT INTO socio() ");  
+            ps = con.prepareStatement("INSERT INTO socio () ");  
         }catch (SQLException e){
             System.out.println("Error" + e);
             JOptionPane.showMessageDialog(null, "Usuario o Contraseña incorrecta");
