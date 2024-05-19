@@ -15,7 +15,8 @@ public class Sede extends javax.swing.JFrame {
     
        
     public Sede() {
-        initComponents();        
+        initComponents();   
+        this.setLocationRelativeTo(null);
     }
 
     /**

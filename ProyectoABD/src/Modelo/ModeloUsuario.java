@@ -8,14 +8,14 @@ package Modelo;
  *
  * @author Ruben
  */
-public class Usuario {
+public class ModeloUsuario {
 
-    public Usuario(String nombre, String contrasena) {
+    public ModeloUsuario(String nombre, String contrasena) {
         this.nombre = nombre;
         this.contrasena = contrasena;
     }
     
-    public Usuario(){
+    public ModeloUsuario(){
         
     }
 

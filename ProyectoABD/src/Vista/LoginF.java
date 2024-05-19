@@ -5,7 +5,7 @@
 package Vista;
 
 import Control.ConexionUsuario;
-import Modelo.Usuario;
+import Modelo.ModeloUsuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -173,7 +173,7 @@ public class LoginF extends javax.swing.JFrame {
         for(int i = 0; i<password.length; i++){
             pass += password[i];
         }
-        Usuario us = new Usuario();
+        ModeloUsuario us = new ModeloUsuario();
         us.setNombre(TextUsuario.getText());
         us.setContrasena(pass);
         ConexionUsuario cu = new ConexionUsuario(us.getNombre(), us.getContrasena());
