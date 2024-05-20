@@ -4,6 +4,10 @@
  */
 package Vista;
 
+import Control.ControladorCuota;
+import Modelo.ModeloCuota;
+
+
 /**
  *
  * @author aleja
@@ -15,8 +19,10 @@ public class ActualizarPago extends javax.swing.JPanel {
      */
     public ActualizarPago() {
         initComponents();
+        cc.RellenarCombo(ComboCuota);
     }
 
+    ControladorCuota cc = new ControladorCuota();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,9 +35,9 @@ public class ActualizarPago extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        ComboCuota = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        TextValor = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -43,15 +49,30 @@ public class ActualizarPago extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jLabel2.setText("Cuota:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboCuota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboCuotaActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jLabel3.setText("Valor:");
+
+        TextValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TextValorKeyTyped(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(0, 51, 102));
         jButton1.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Actualizar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,8 +86,8 @@ public class ActualizarPago extends javax.swing.JPanel {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jComboBox1, 0, 242, Short.MAX_VALUE)
-                    .addComponent(jTextField1)
+                    .addComponent(ComboCuota, 0, 242, Short.MAX_VALUE)
+                    .addComponent(TextValor)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -79,11 +100,11 @@ public class ActualizarPago extends javax.swing.JPanel {
                 .addGap(70, 70, 70)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ComboCuota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TextValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(83, 83, 83))
@@ -101,14 +122,33 @@ public class ActualizarPago extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void ComboCuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboCuotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboCuotaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ModeloCuota mc = new ModeloCuota();
+        mc.setNombre((String) ComboCuota.getSelectedItem());
+        mc.setMonto(Integer.parseInt(TextValor.getText()));
+        cc.actSede(mc.getNombre(), mc.getMonto());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void TextValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TextValorKeyTyped
+        int key = evt.getKeyChar();
+        boolean numero = key >= 48 && key <= 57 || key == 127;
+        if(!numero){
+            evt.consume();
+        }
+    }//GEN-LAST:event_TextValorKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> ComboCuota;
+    private javax.swing.JTextField TextValor;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
