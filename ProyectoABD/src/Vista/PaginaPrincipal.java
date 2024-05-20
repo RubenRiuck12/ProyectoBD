@@ -70,6 +70,11 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jMenu2.setText("Administradores Generales");
 
         jMenuItem2.setText("General");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem2);
 
         jMenuBar1.add(jMenu2);
@@ -104,6 +109,17 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        PaginaGeneral pg= new PaginaGeneral();
+        pg.setSize(625,384);
+        pg.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(pg, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
