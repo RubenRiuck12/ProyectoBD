@@ -59,7 +59,7 @@ public class SocioV extends javax.swing.JFrame {
         PanelT.setLayout(PanelTLayout);
         PanelTLayout.setHorizontalGroup(
             PanelTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 762, Short.MAX_VALUE)
+            .addGap(0, 821, Short.MAX_VALUE)
         );
         PanelTLayout.setVerticalGroup(
             PanelTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -87,6 +87,11 @@ public class SocioV extends javax.swing.JFrame {
         UpdateDeleteS.add(MenuRS1);
 
         jMenuItem5.setText("Actualizar/Eliminar Socio");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         UpdateDeleteS.add(jMenuItem5);
 
         jMenuBarSocios.add(UpdateDeleteS);
@@ -103,6 +108,11 @@ public class SocioV extends javax.swing.JFrame {
         MenuVer.setText("Ver Socios");
 
         MenuTabla.setText("Ver Tabla ");
+        MenuTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuTablaActionPerformed(evt);
+            }
+        });
         MenuVer.add(MenuTabla);
 
         jMenuBarSocios.add(MenuVer);
@@ -113,7 +123,7 @@ public class SocioV extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(PanelT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -138,6 +148,18 @@ public class SocioV extends javax.swing.JFrame {
        PanelT.add(rs);
        rs.setVisible(true);
     }//GEN-LAST:event_MenuRS1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        Actualizar_ElimnarS aes = new Actualizar_ElimnarS();
+        PanelT.add(aes);
+        aes.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void MenuTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTablaActionPerformed
+        SociosT st = new SociosT();
+        PanelT.add(st);
+        st.setVisible(true);
+    }//GEN-LAST:event_MenuTablaActionPerformed
 
     //MAIN
     public static void main(String args[]) {
