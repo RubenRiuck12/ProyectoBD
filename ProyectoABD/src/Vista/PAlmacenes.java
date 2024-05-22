@@ -10,12 +10,12 @@ import java.awt.BorderLayout;
  *
  * @author aleja
  */
-public class Voluntarios extends javax.swing.JFrame {
+public class PAlmacenes extends javax.swing.JFrame {
 
     /**
-     * Creates new form Voluntarios2
+     * Creates new form Almacenes
      */
-    public Voluntarios() {
+    public PAlmacenes() {
         initComponents();
     }
 
@@ -33,13 +33,9 @@ public class Voluntarios extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -56,7 +52,12 @@ public class Voluntarios extends javax.swing.JFrame {
             .addGap(0, 361, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Administrar Voluntarios");
+        jMenu1.setText("Administrar Alimentos");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Registrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +67,7 @@ public class Voluntarios extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Lista");
+        jMenuItem2.setText("Actualizar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -74,19 +75,19 @@ public class Voluntarios extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setText("Actualizar");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Administrar Medicamentos");
+
+        jMenuItem3.setText("Registrar");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        jMenu2.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Tipos de Voluntarios");
-
-        jMenuItem4.setText("Registrar Tipo");
+        jMenuItem4.setText("Actualizar");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -94,35 +95,7 @@ public class Voluntarios extends javax.swing.JFrame {
         });
         jMenu2.add(jMenuItem4);
 
-        jMenuItem5.setText("Actualizar");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
-
         jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Profesiones");
-
-        jMenuItem6.setText("Registrar");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem6);
-
-        jMenuItem7.setText("Actualizar");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem7);
-
-        jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
 
@@ -134,88 +107,59 @@ public class Voluntarios extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(content, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(content, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-        ActualizarProfesion ap= new ActualizarProfesion();
-        ap.setSize(625,384);
-        ap.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(ap, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        RegistrarVoluntarios rv= new RegistrarVoluntarios();
-        rv.setSize(625,384);
-        rv.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(rv, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListaVoluntarios lv= new ListaVoluntarios();
-        lv.setSize(625,384);
-        lv.setLocation(0,0);
+        ActualizarAlimentos aa= new ActualizarAlimentos();
+        aa.setSize(625,384);
+        aa.setLocation(0,0);
         
         content.removeAll();
-        content.add(lv, BorderLayout.CENTER);
+        content.add(aa, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        ActualizarVoluntarios av= new ActualizarVoluntarios();
-        av.setSize(625,384);
-        av.setLocation(0,0);
+        RegistrarMedicamentos rm= new RegistrarMedicamentos();
+        rm.setSize(625,384);
+        rm.setLocation(0,0);
         
         content.removeAll();
-        content.add(av, BorderLayout.CENTER);
+        content.add(rm, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        RegistrarTipoVoluntarios rtv= new RegistrarTipoVoluntarios();
-        rtv.setSize(625,384);
-        rtv.setLocation(0,0);
+        ActualizarMedicamentos am= new ActualizarMedicamentos();
+        am.setSize(625,384);
+        am.setLocation(0,0);
         
         content.removeAll();
-        content.add(rtv, BorderLayout.CENTER);
+        content.add(am, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        ActualizarTipoVoluntarios atv= new ActualizarTipoVoluntarios();
-        atv.setSize(625,384);
-        atv.setLocation(0,0);
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        RegistrarAlimentos ra= new RegistrarAlimentos();
+        ra.setSize(625,384);
+        ra.setLocation(0,0);
         
         content.removeAll();
-        content.add(atv, BorderLayout.CENTER);
+        content.add(ra, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        RegistrarProfesion rp= new RegistrarProfesion();
-        rp.setSize(625,384);
-        rp.setLocation(0,0);
-        
-        content.removeAll();
-        content.add(rp, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,13 +178,13 @@ public class Voluntarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Voluntarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PAlmacenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Voluntarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PAlmacenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Voluntarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PAlmacenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Voluntarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PAlmacenes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -248,7 +192,7 @@ public class Voluntarios extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Voluntarios().setVisible(true);
+                new PAlmacenes().setVisible(true);
             }
         });
     }
@@ -257,14 +201,10 @@ public class Voluntarios extends javax.swing.JFrame {
     private javax.swing.JPanel content;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     // End of variables declaration//GEN-END:variables
 }

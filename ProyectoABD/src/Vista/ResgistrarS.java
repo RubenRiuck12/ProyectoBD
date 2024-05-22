@@ -231,7 +231,7 @@ public class ResgistrarS extends javax.swing.JInternalFrame {
         String consultan = "select idSede from sede where ciudad ="+"'"+ms.getIdSede()+"'";
         int id = cs.llamarId(consultan);
         ms.setTipoCuota((String) ComoboCuota.getSelectedItem());
-        cs.subirSocio(ms.getNombre(), ms.getApellidoP(), ms.getApellidoM(), ms.getDomicilio(), ms.getFechaNac(), ms.getTelefono(), ms.getCuentaBnacaria(), ms.getFechPago(), id, ms.getTipoCuota());
+        cs.subirSocio(ms.getNombre().toUpperCase(), ms.getApellidoP().toUpperCase(), ms.getApellidoM().toUpperCase(), ms.getDomicilio().toUpperCase(), ms.getFechaNac(), ms.getTelefono(), ms.getCuentaBnacaria(), ms.getFechPago(), id, ms.getTipoCuota());
     }//GEN-LAST:event_BtnGuardarActionPerformed
 
 

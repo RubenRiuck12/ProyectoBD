@@ -106,11 +106,17 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Resgistrar Cuota"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuCuotaActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="MenuPago">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Realizar pago"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuPagoActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

@@ -10,6 +10,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -156,7 +158,38 @@ public class ControlSocio {
             }
         }catch(SQLException e){
             System.out.println("Error combo" + e); 
+        }finally {
+            try {
+                if (rs != null) rs.close();
+                if (st != null) st.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+               System.out.println("Error" + e);
+               JOptionPane.showMessageDialog(null, "ERROR EN CERRAR CONEXIONES");
+            } 
         }
+    }
+        
+    public ResultSet RellenarComboSociosCuota(){
+        String consulta = "select idDatosPersonales, nombre, apellidoP, apellidoM from DatosPersonalesS";
+        try{
+            String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            st = con.createStatement();
+            rs = st.executeQuery(consulta);
+        }catch(SQLException e){
+            System.out.println("Error combo" + e); 
+        }finally {
+            try {
+                if (rs != null) rs.close();
+                if (st != null) st.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+               System.out.println("Error" + e);
+               JOptionPane.showMessageDialog(null, "ERROR EN CERRAR CONEXIONES");
+            } 
+        }
+        return rs;
     }
     
     //Metodo para llenar la lista con los datos de DatosPeronalesS y socio
@@ -165,7 +198,7 @@ public class ControlSocio {
             String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
             con = DriverManager.getConnection(url, this.userName, this.password);
             st = con.createStatement();
-            String consulta = "select idDatosPersonales, nombre from DatosPersonalesS";
+            String consulta = "select idDatosPersonales, nombre, apellidoP, apellidoM from DatosPersonalesS";
             rs = st.executeQuery(consulta);
         }catch(SQLException e){
             System.out.println("Error" + e);
@@ -207,7 +240,7 @@ public class ControlSocio {
         return rs;
    }
     
-   //Metodo para mostrar los datos del socio en la interrfaz de Socio
+   //Metodo para mostrar los datos del socio en la interfaz de Socio
     public ResultSet otroActualizar(int id){
         ResultSet rr = null;
         try{
@@ -241,8 +274,8 @@ public class ControlSocio {
         return rs;
    }
     
-    
-   public ResultSet camb(int id){
+    //Metodo para cambiar el id de la sede por el nombre de la ciudad donde se encuentra
+   public ResultSet LlamaSede(int id){
        try{
             String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
             con = DriverManager.getConnection(url, this.userName, this.password);
@@ -266,118 +299,25 @@ public class ControlSocio {
        return rs;
    }
     
-        //Metodo para actualizar los datos de Socio
-   public void actSocio(String nombre, String apeP, String apeM, String domicilio, String fechaNac, String telefono, String cuenB, String fechaPag, int idSede, String tc, int idD){
-      try{
-            String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+   public void actNom(String nombre, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
             con = DriverManager.getConnection(url, this.userName, this.password);
             System.out.println("Conexion Exitosa ");
-            int id = rs.getInt(1);
-            
             
             String consulta = "update DatosPersonalesS set nombre = ? where idDatosPersonales = ?";
-            String consulta2 = "update DatosPersonalesS set apellidoP = ? where idDatosPersonales = ?";
-            String consulta3 = "update DatosPersonalesS set apellidoM = ? where idDatosPersonales = ?";
-            String consulta4 = "update DatosPersonalesS set domicilio = ? where idDatosPersonales = ?";
-            String consulta5 = "update DatosPersonalesS set fechaNac = ? where idDatosPersonales = ?";
-            String consulta6 = "update DatosPersonalesS set telefono = ? where idDatosPersonales = ?";
-            String consulta7 = "update socio set cuentaBancaria = ? where idSocio = ?";
-            String consulta8 = "update socio set fechaPago = ? where idSocio = ?";
-            String consulta9 = "update socio set idSede = ? where idSocio = ?";
-            String consulta10 = "update socio set idTipoCuota = ? where idSocio = ?";
-            
-            String consulta11 = "select idSocio from DatosPersonalesS where idDatosPeronales ="+idD;
             
             if(!nombre.isEmpty()){
                 ps = con.prepareStatement(consulta);
                 ps.setString(1, nombre);
                 ps.setInt(2, id);
-                System.out.println("Actualizado nombre");
                 ps.executeUpdate();
+                System.out.println("Nombre Actualizado");
             }          
-            if(!apeP.isEmpty()){
-                ps = con.prepareStatement(consulta2);
-                ps.setString(1, apeP);
-                ps.setInt(2, id);
-                System.out.println("Actualizado Apellido Paterno");
-                ps.executeUpdate();
-            }
-            if(!apeM.isEmpty()){
-                ps = con.prepareStatement(consulta3);
-                ps.setString(1, apeM);
-                ps.setInt(2, id);
-                System.out.println("Actualizado Apellido Materno");
-                ps.executeUpdate();
-            }
-            if(!domicilio.isEmpty()){
-                ps = con.prepareStatement(consulta4);
-                ps.setString(1, apeM);
-                ps.setInt(2, id);
-                System.out.println("Actualizado Apellido Materno");
-                ps.executeUpdate();
-            }
-            if(!fechaNac.isEmpty()){
-                ps = con.prepareStatement(consulta5);
-                ps.setString(1, fechaNac);
-                ps.setInt(2, id);
-                System.out.println("Actualizado Fecha Nacimiento");
-                ps.executeUpdate();
-            }
-            if(!telefono.isEmpty()){
-                ps = con.prepareStatement(consulta6);
-                ps.setString(1, telefono);
-                ps.setInt(2, id);
-                System.out.println("Actualizado Telefono");
-                ps.executeUpdate();
-            }
-            
-            ps = con.prepareStatement(consulta11);
-            ps.setString(1, nombre);
-            rs = ps.executeQuery();
-            int idSocio = rs.getInt(1);
-            
-            if(!cuenB.isEmpty()){
-                ps = con.prepareStatement(consulta7);
-                ps.setString(1, cuenB);
-                ps.setInt(2, idSocio);
-                System.out.println("Actualizado Cuenta Bancaria");
-                ps.executeUpdate();
-            }
-            if(!fechaPag.isEmpty()){
-                ps = con.prepareStatement(consulta8);
-                ps.setString(1, fechaPag);
-                ps.setInt(2, idSocio);
-                System.out.println("Actualizado Fecha de Pago");
-                ps.executeUpdate();
-            }
-            if(idSede != 0){
-                ps = con.prepareStatement(consulta9);
-                ps.setInt(1, idSede);
-                ps.setInt(2, idSocio);
-                System.out.println("Actualizado Sede");
-                ps.executeUpdate();
-            }
-            if(!tc.isEmpty()){
-                ps = con.prepareStatement(consulta10);
-                ps.setString(1, tc);
-                ps.setInt(2, idSocio);
-                System.out.println("Actualizado Tipo de Cuota");
-                ps.executeUpdate();
-            }
-          
-//            if(director.isEmpty() && domicilio.isEmpty()){
-//                JOptionPane.showMessageDialog(null, "Ningun cambio generado");
-//            }
-//            int rowsInsert = 
-//            
-//            if(rowsInsert > 0){
-//                System.out.println("Nuevo agregado");
-//                JOptionPane.showMessageDialog(null, "Sede actualizada");
-//            }
-        }catch (SQLException e){
-            System.out.println("Error" + e);
-            JOptionPane.showMessageDialog(null, "ERROR EN LA ACTUALIZACION DE DATOS");
-        }finally{
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar Nombre");
+       }finally{
             try{
                 if(ps != null) ps.close();
                 if(con != null) con.close();
@@ -387,57 +327,341 @@ public class ControlSocio {
         }
    }
    
-//    public void actOtros(int idSede, String tc, int idSocio){
-//      try{
-//            String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
-//            con = DriverManager.getConnection(url, this.userName, this.password);
-//            System.out.println("Conexion Exitosa ");
-//            String consulta = "update socio set idSede = ? where socio = ?";
-//            String consulta2 = "update socio set idTipoCuota = ? where socio = ?";
-//            if(idSede != 0){
-//                ps = con.prepareStatement(consulta);
-//                ps.setInt(1, idSede);
-//                ps.setInt(2, idSocio);
-//                System.out.println("Actualizado Sede");
-//                ps.executeUpdate();
-//            }          
-//            if(!tc.isEmpty()){
-//                ps = con.prepareStatement(consulta2);
-//                ps.setString(1, tc);
-//                ps.setInt(2, idSocio);
-//                System.out.println("Actualizado Tipo de Cuota");
-//                ps.executeUpdate();
-//            }
-////            int rowsInsert = 
-////            
-////            if(rowsInsert > 0){
-////                System.out.println("Nuevo agregado");
-////                JOptionPane.showMessageDialog(null, "Sede actualizada");
-////            }
-//        }catch (SQLException e){
-//            System.out.println("Error" + e);
-//            JOptionPane.showMessageDialog(null, "ERROR EN LA ACTUALIZACION DE DATOS");
-//        }finally{
-//            try{
-//                if(ps != null) ps.close();
-//                if(con != null) con.close();
-//            }catch(SQLException e){
-//                System.out.println("Error" + e);
-//            }
-//        }  
-//    }
+   public void actApeP(String apellido, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "update DatosPersonalesS set apellidoP = ? where idDatosPersonales = ?";
+            
+            if(!apellido.isEmpty()){
+                ps = con.prepareStatement(consulta);
+                ps.setString(1, apellido);
+                ps.setInt(2, id);
+                ps.executeUpdate();
+                System.out.println("Apellido Paterno Actualizado");
+            }          
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar ApellidoP");
+       }finally{
+            try{
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actApeM(String apellido, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "update DatosPersonalesS set apellidoM = ? where idDatosPersonales = ?";
+            
+            if(!apellido.isEmpty()){
+                ps = con.prepareStatement(consulta);
+                ps.setString(1, apellido);
+                ps.setInt(2, id);
+                ps.executeUpdate();
+                System.out.println("Apellido Maaterno Actualizado");
+            }          
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar ApellidoM");
+       }finally{
+            try{
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actDomicilio(String domicilio, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "update DatosPersonalesS set domicilio = ? where idDatosPersonales = ?";
+            
+            if(!domicilio.isEmpty()){
+                ps = con.prepareStatement(consulta);
+                ps.setString(1, domicilio);
+                ps.setInt(2, id);
+                ps.executeUpdate();
+                System.out.println("Domicilio Actualizado");
+            }          
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar Domicilio");
+       }finally{
+            try{
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actFechaNac(String fechaNac, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "update DatosPersonalesS set fechaNac = ? where idDatosPersonales = ?";
+            
+            if(!fechaNac.isEmpty()){
+                ps = con.prepareStatement(consulta);
+                ps.setString(1, fechaNac);
+                ps.setInt(2, id);
+                ps.executeUpdate();
+                System.out.println("FechaNac Actualizado");
+            }          
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar FechaNac");
+       }finally{
+            try{
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void acttelefono(String tel, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "update DatosPersonalesS set telefono = ? where idDatosPersonales = ?";
+            
+            if(!tel.isEmpty()){
+                ps = con.prepareStatement(consulta);
+                ps.setString(1, tel);
+                ps.setInt(2, id);
+                ps.executeUpdate();
+                System.out.println("Telefono Actualizado");
+            }          
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar Telefono");
+       }finally{
+            try{
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actCuenBan(String cuenBan, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "select idSocio from DatosPersonalesS where idDatosPersonales ="+id;
+            
+            ps = con.prepareStatement(consulta);
+            rs = ps.executeQuery();
+            int idSocio = 0; 
+            while(rs.next()){
+               idSocio = rs.getInt(1);
+            }
+            
+            
+            String consulta2 = "update socio set cuentaBancaria = ? where idSocio = ?";
+            
+            if(!cuenBan.isEmpty()){
+                ps = con.prepareStatement(consulta2);
+                ps.setString(1, cuenBan);
+                ps.setInt(2, idSocio);
+                ps.executeUpdate();
+                System.out.println("Actualizado Cuenta Bancaria");
+            }     
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar Cuenta Ban");
+       }finally{
+            try{
+                if(rs != null) rs.close();
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actFechaPag(String fechPag, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "select idSocio from DatosPersonalesS where idDatosPersonales ="+id;
+            
+            ps = con.prepareStatement(consulta);
+            rs = ps.executeQuery();
+            int idSocio = 0; 
+            while(rs.next()){
+               idSocio = rs.getInt(1);
+            }
+            
+            String consulta2 = "update socio set fechaPago = ? where idSocio = ?";
+            
+            if(!fechPag.isEmpty()){
+                ps = con.prepareStatement(consulta2);
+                ps.setString(1, fechPag);
+                ps.setInt(2, idSocio);
+                ps.executeUpdate();
+                System.out.println("Actualizado Fecha Pago");
+            }     
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar Fecha Pago");
+       }finally{
+            try{
+                if(rs != null) rs.close();
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actSede(String ciudad, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            
+            String consulta = "select idSocio from DatosPersonalesS where idDatosPersonales ="+id;
+            
+            ps = con.prepareStatement(consulta);
+            rs = ps.executeQuery();
+            int idSocio = 0;
+            while(rs.next()){
+               idSocio = rs.getInt("idSocio");
+            }
+            
+            
+            String consulta2 = "select idSede from sede where ciudad ="+"'"+ciudad+"'";
+            ps = con.prepareStatement(consulta2);
+            rs = ps.executeQuery();
+            int idsede = 0;
+            while(rs.next()){
+               idsede = rs.getInt("idSede"); 
+            }
+            System.out.println(idsede);
+
+            String consulta3 = "update socio set idsede = ? where idSocio = ?";
+            
+            
+            if(idsede != 0){
+                ps = con.prepareStatement(consulta3);
+                ps.setInt(1, idsede);
+                ps.setInt(2, idSocio);
+                ps.executeUpdate();
+                System.out.println("Sede actualizada");
+            }     
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar sede");
+       }finally{
+            try{
+                if(rs != null) rs.close();
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+   
+   public void actTipoC(String tcuota, int id){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            System.out.println("Conexion Exitosa ");
+            System.out.println(tcuota);
+            
+            String consulta = "select idSocio from DatosPersonalesS where idDatosPersonales ="+id;
+            
+            ps = con.prepareStatement(consulta);
+            rs = ps.executeQuery();
+            int idSocio = 0; 
+            while(rs.next()){
+               idSocio = rs.getInt(1);
+            }
+            
+            String consulta2 = "update socio set idTipoCuota = ? where idSocio = ?";
+            
+            if(!tcuota.isEmpty()){
+                ps = con.prepareStatement(consulta2);
+                ps.setString(1, tcuota);
+                ps.setInt(2, idSocio);
+                ps.executeUpdate();
+                System.out.println("Actualizado Tipo Cuota");
+            }     
+       }catch(SQLException e){
+           System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en Modificar Tipo Cuota");
+       }finally{
+            try{
+                if(rs != null) rs.close();
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error" + e);
+            }
+        }
+   }
+
    //Metodo para elimianr un registro
-   public void eliminarSocio(String nombre, String apeP, String apeM, int id){
+   public void eliminarSocio(int id){
        try{
            String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
            con = DriverManager.getConnection(url, this.userName, this.password);
            System.out.println("Conexion Exitosa ");
-           String consulta = "delete from DatosPersonalesS where idDatosPersonales ="+id;
-           int fill = st.executeUpdate(consulta);
+           st = con.createStatement();
+           
+           String consulta = "select idSocio from DatosPersonalesS where idDatosPersonales ="+id;
+           rs = st.executeQuery(consulta);
+           int idS = 0;
+           while(rs.next()){
+               idS = rs.getInt("idSocio");
+           }
+           
+           String consulta2 = "delete from DatosPersonalesS where idDatosPersonales ="+id;
+           
+           int fill = st.executeUpdate(consulta2);
            if(fill > 0){
-               System.out.println("Eliminacion Completa");
+               System.out.println("Eliminacion  Datos Completa");
                JOptionPane.showMessageDialog(null, "Se elimino el registro correctamente");
            }
+           
+           String consulta3 = "delete from socio where idSocio ="+idS;
+           int fill2 = st.executeUpdate(consulta3);
+           if(fill > 0){
+               System.out.println("Eliminacion  Datos Completa");
+               JOptionPane.showMessageDialog(null, "Se elimino el registro correctamente");
+           }
+           
        }catch(SQLException e){
             System.out.println("Error" + e);
             JOptionPane.showMessageDialog(null, "ERROR EN ELIMINAR REGISTRO");
@@ -451,5 +675,54 @@ public class ControlSocio {
             } 
         }
    }
+   
+   public void pagarCuota(int id, String cuota){
+       try{
+           String url = "jdbc:mariadb://"+this.host+":"+this.port+"/"+this.dbName;
+            con = DriverManager.getConnection(url, this.userName, this.password);
+            st = con.createStatement();
+        String consulta = "select idSocio from DatosPersonalesS where idDatosPersonales ="+id;
+        rs = st.executeQuery(consulta);
+        int idsocio = 0;
+            while(rs.next()){
+                idsocio = rs.getInt("idSocio");
+            }
+        
+        String consulta2 = "select montoActual from TipodeCuota where idTipocuota ="+"'"+cuota+"'";
+        rs = st.executeQuery(consulta2);
+        int pago = 0;
+            while(rs.next()){
+                pago = rs.getInt("montoActual");
+            }
+            
+          LocalDate fechaHoy = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+        String fecha = fechaHoy.format(formatter);
+        String consulta3 = "Insert into cuota(fechaPago, pago, idSocio) values(?,?,?)";
+        ps = con.prepareStatement(consulta3);
+            
+            ps.setString(1, fecha);
+            ps.setInt(2, pago);
+            ps.setInt(3, idsocio);
+            int rowsInsert2 = ps.executeUpdate();
+        if(rowsInsert2 > 0){
+              System.out.println("Datos Cuota agregada Correctamente");
+              JOptionPane.showMessageDialog(null, "Cuota agregado correctamente");
+            }
+        
+        }catch (SQLException e){
+            System.out.println("Error" + e);
+            JOptionPane.showMessageDialog(null, "Error en agregar Cuota");
+        }finally{
+            try{
+                if(rs != null) rs.close();
+                if(ps != null) ps.close();
+                if(con != null) con.close();
+            }catch(SQLException e){
+                System.out.println("Error Cerrar Conexion" + e);
+            }
+        }
+   }
+   
 }
 

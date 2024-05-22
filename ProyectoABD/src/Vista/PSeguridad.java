@@ -10,14 +10,13 @@ import java.awt.BorderLayout;
  *
  * @author aleja
  */
-public class CuotaT extends javax.swing.JFrame {
+public class PSeguridad extends javax.swing.JFrame {
 
     /**
-     * Creates new form JFrameFormeCuota
+     * Creates new form Seguridad
      */
-    public CuotaT() {
+    public PSeguridad() {
         initComponents();
-        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -34,6 +33,7 @@ public class CuotaT extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,11 +50,9 @@ public class CuotaT extends javax.swing.JFrame {
             .addGap(0, 361, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 51, 102));
+        jMenu1.setText("Administrar Usuarios");
 
-        jMenu1.setText("Cuotas");
-
-        jMenuItem1.setText("Registrar Cuotas");
+        jMenuItem1.setText("Registrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -62,13 +60,21 @@ public class CuotaT extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Actualizar Valores");
+        jMenuItem2.setText("Actualizar");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Suspender");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
 
@@ -89,26 +95,37 @@ public class CuotaT extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        RegistrarCuotas rc = new RegistrarCuotas();
-        rc.setSize(625,384);
-        rc.setLocation(0,0);
+        RegistrarUsuarios ru= new RegistrarUsuarios();
+        ru.setSize(625,384);
+        ru.setLocation(0,0);
         
         content.removeAll();
-        content.add(rc, BorderLayout.CENTER);
+        content.add(ru, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ActualizarPago ap= new ActualizarPago();
-        ap.setSize(625,384);
-        ap.setLocation(0,0);
+        ActualizarUsuarios au= new ActualizarUsuarios();
+        au.setSize(625,384);
+        au.setLocation(0,0);
         
         content.removeAll();
-        content.add(ap, BorderLayout.CENTER);
+        content.add(au, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        SuspenderUsuarios su= new SuspenderUsuarios();
+        su.setSize(625,384);
+        su.setLocation(0,0);
+        
+        content.removeAll();
+        content.add(su, BorderLayout.CENTER);
+        content.revalidate();
+        content.repaint();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,13 +144,13 @@ public class CuotaT extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CuotaT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CuotaT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CuotaT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CuotaT.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -141,7 +158,7 @@ public class CuotaT extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CuotaT().setVisible(true);
+                new PSeguridad().setVisible(true);
             }
         });
     }
@@ -152,5 +169,6 @@ public class CuotaT extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     // End of variables declaration//GEN-END:variables
 }

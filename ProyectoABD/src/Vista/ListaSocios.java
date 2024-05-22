@@ -16,12 +16,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Ruben
  */
-public class SociosT extends javax.swing.JInternalFrame {
+public class ListaSocios extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form SociosT
      */
-    public SociosT() {
+    public ListaSocios() {
         initComponents();
         LlenarTabla();
     }

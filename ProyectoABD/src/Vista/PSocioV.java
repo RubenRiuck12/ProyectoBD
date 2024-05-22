@@ -1,8 +1,10 @@
 package Vista;
 
-public class SocioV extends javax.swing.JFrame {
+import java.awt.BorderLayout;
 
-    public SocioV() {
+public class PSocioV extends javax.swing.JFrame {
+
+    public PSocioV() {
         initComponents();
          this.setLocationRelativeTo(null);
     }
@@ -98,8 +100,18 @@ public class SocioV extends javax.swing.JFrame {
 
         MenuCuota.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         MenuCuota.setText("Resgistrar Cuota");
+        MenuCuota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuCuotaActionPerformed(evt);
+            }
+        });
 
         MenuPago.setText("Realizar pago");
+        MenuPago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPagoActionPerformed(evt);
+            }
+        });
         MenuCuota.add(MenuPago);
 
         jMenuBarSocios.add(MenuCuota);
@@ -156,10 +168,25 @@ public class SocioV extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void MenuTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTablaActionPerformed
-        SociosT st = new SociosT();
+        ListaSocios st = new ListaSocios();
         PanelT.add(st);
         st.setVisible(true);
     }//GEN-LAST:event_MenuTablaActionPerformed
+
+    private void MenuPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPagoActionPerformed
+        RegistroPSocios ru= new RegistroPSocios();
+        ru.setSize(625,384);
+        ru.setLocation(0,0);
+        
+        PanelT.removeAll();
+        PanelT.add(ru, BorderLayout.CENTER);
+        PanelT.revalidate();
+        PanelT.repaint();
+    }//GEN-LAST:event_MenuPagoActionPerformed
+
+    private void MenuCuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCuotaActionPerformed
+
+    }//GEN-LAST:event_MenuCuotaActionPerformed
 
     //MAIN
     public static void main(String args[]) {
@@ -176,14 +203,18 @@ public class SocioV extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PSocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -192,7 +223,7 @@ public class SocioV extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SocioV().setVisible(true);
+                new PSocioV().setVisible(true);
             }
         });
     }
