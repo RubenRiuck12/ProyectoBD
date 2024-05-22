@@ -10,12 +10,12 @@ import java.awt.BorderLayout;
  *
  * @author aleja
  */
-public class PaginaPrincipal extends javax.swing.JFrame {
+public class Envios extends javax.swing.JFrame {
 
     /**
-     * Creates new form PaginaPrincipal
+     * Creates new form Envios
      */
-    public PaginaPrincipal() {
+    public Envios() {
         initComponents();
     }
 
@@ -32,7 +32,6 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -50,14 +49,9 @@ public class PaginaPrincipal extends javax.swing.JFrame {
             .addGap(0, 361, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Administradores del Sistema");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
+        jMenu1.setText("Administracion de Envios");
 
-        jMenuItem1.setText("Sistema");
+        jMenuItem1.setText("Registrar");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -65,19 +59,15 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Administradores Generales");
-
-        jMenuItem2.setText("General");
+        jMenuItem2.setText("Ver Envios");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu1.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -95,28 +85,24 @@ public class PaginaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        PaginaSistema pa= new PaginaSistema();
-        pa.setSize(625,384);
-        pa.setLocation(0,0);
+        RegistroEnvios re= new RegistroEnvios();
+        re.setSize(625,384);
+        re.setLocation(0,0);
         
         content.removeAll();
-        content.add(pa, BorderLayout.CENTER);
+        content.add(re, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        PaginaGeneral pg= new PaginaGeneral();
-        pg.setSize(625,384);
-        pg.setLocation(0,0);
+        TablaEnvios te= new TablaEnvios();
+        te.setSize(625,384);
+        te.setLocation(0,0);
         
         content.removeAll();
-        content.add(pg, BorderLayout.CENTER);
+        content.add(te, BorderLayout.CENTER);
         content.revalidate();
         content.repaint();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
@@ -138,20 +124,20 @@ public class PaginaPrincipal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Envios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PaginaPrincipal().setVisible(true);
+                new Envios().setVisible(true);
             }
         });
     }
@@ -159,7 +145,6 @@ public class PaginaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel content;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

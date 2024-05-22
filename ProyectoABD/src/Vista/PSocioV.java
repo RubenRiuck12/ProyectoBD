@@ -1,6 +1,11 @@
 package Vista;
 
 import java.awt.BorderLayout;
+<<<<<<< HEAD:ProyectoABD/src/Vista/PSocioV.java
+=======
+
+public class SocioV extends javax.swing.JFrame {
+>>>>>>> de6b380d7ab312fff8e3dffa1ff5193949dfa08d:ProyectoABD/src/Vista/SocioV.java
 
 public class PSocioV extends javax.swing.JFrame {
 
@@ -23,7 +28,7 @@ public class PSocioV extends javax.swing.JFrame {
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        PanelT = new javax.swing.JDesktopPane();
+        jPanel1 = new javax.swing.JPanel();
         jMenuBarSocios = new javax.swing.JMenuBar();
         UpdateDeleteS = new javax.swing.JMenu();
         MenuRS1 = new javax.swing.JMenuItem();
@@ -54,19 +59,22 @@ public class PSocioV extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Socios");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        PanelT.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
 
-        javax.swing.GroupLayout PanelTLayout = new javax.swing.GroupLayout(PanelT);
-        PanelT.setLayout(PanelTLayout);
-        PanelTLayout.setHorizontalGroup(
-            PanelTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 821, Short.MAX_VALUE)
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
-        PanelTLayout.setVerticalGroup(
-            PanelTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 524, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
 
         jMenuBarSocios.setBackground(new java.awt.Color(0, 0, 255));
         jMenuBarSocios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -131,47 +139,65 @@ public class PSocioV extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBarSocios);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(PanelT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(PanelT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MenuTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTablaActionPerformed
+        SociosT2 st= new SociosT2();
+        st.setSize(599,440);
+        st.setLocation(0,0);
+
+        jPanel1.removeAll();
+        jPanel1.add(st, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_MenuTablaActionPerformed
 
     //Actions
     private void UpdateDeleteSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDeleteSActionPerformed
 
     }//GEN-LAST:event_UpdateDeleteSActionPerformed
 
-    private void MenuRS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRS1ActionPerformed
-       ResgistrarS rs = new ResgistrarS();
-       PanelT.add(rs);
-       rs.setVisible(true);
-    }//GEN-LAST:event_MenuRS1ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        Actualizar_ElimnarS aes = new Actualizar_ElimnarS();
-        PanelT.add(aes);
-        aes.setVisible(true);
+        Actualizar_EliminarS2 aes= new Actualizar_EliminarS2();
+        aes.setSize(599,440);
+        aes.setLocation(0,0);
+
+        jPanel1.removeAll();
+        jPanel1.add(aes, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
+<<<<<<< HEAD:ProyectoABD/src/Vista/PSocioV.java
     private void MenuTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTablaActionPerformed
         ListaSocios st = new ListaSocios();
         PanelT.add(st);
         st.setVisible(true);
     }//GEN-LAST:event_MenuTablaActionPerformed
+=======
+    private void MenuRS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRS1ActionPerformed
+        RegistrarS2 rs= new RegistrarS2();
+        rs.setSize(599,440);
+        rs.setLocation(0,0);
+
+        jPanel1.removeAll();
+        jPanel1.add(rs, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_MenuRS1ActionPerformed
+
+    private void MenuPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPagoActionPerformed
+        CuotaSocio2 cs= new CuotaSocio2();
+        cs.setSize(599,440);
+        cs.setLocation(0,0);
+
+        jPanel1.removeAll();
+        jPanel1.add(cs, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
+    }//GEN-LAST:event_MenuPagoActionPerformed
+>>>>>>> de6b380d7ab312fff8e3dffa1ff5193949dfa08d:ProyectoABD/src/Vista/SocioV.java
 
     private void MenuPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPagoActionPerformed
         RegistroPSocios ru= new RegistroPSocios();
@@ -234,7 +260,6 @@ public class PSocioV extends javax.swing.JFrame {
     private javax.swing.JMenuItem MenuRS1;
     private javax.swing.JMenuItem MenuTabla;
     private javax.swing.JMenu MenuVer;
-    private javax.swing.JDesktopPane PanelT;
     private javax.swing.JMenu UpdateDeleteS;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JMenu jMenu1;
@@ -247,5 +272,6 @@ public class PSocioV extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
