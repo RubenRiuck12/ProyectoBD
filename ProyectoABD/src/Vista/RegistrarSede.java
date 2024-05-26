@@ -142,7 +142,7 @@ public class RegistrarSede extends javax.swing.JPanel {
             sd.setDirector(TextDirector.getText());
             sd.setDomicilio(TextDomicilio.getText());
             ControlSede rs = new ControlSede();
-            rs.subirSede(sd.getCiudad(), sd.getDomicilio(), sd.getDirector());    
+            rs.subirSede(sd.getCiudad().toUpperCase(), sd.getDomicilio().toUpperCase(), sd.getDirector().toUpperCase());    
         }
         TextCiudad.setText("");
         TextDirector.setText("");

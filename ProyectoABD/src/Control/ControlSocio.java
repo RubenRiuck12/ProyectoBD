@@ -655,9 +655,12 @@ public class ControlSocio {
                JOptionPane.showMessageDialog(null, "Se elimino el registro correctamente");
            }
            
-           String consulta3 = "delete from socio where idSocio ="+idS;
-           int fill2 = st.executeUpdate(consulta3);
-           if(fill > 0){
+           String consulta3 = "delete from cuota where idSocio ="+idS;
+           st.executeUpdate(consulta3);
+           
+           String consulta4 = "delete from socio where idSocio ="+idS;
+           int fill3 = st.executeUpdate(consulta4);
+           if(fill3 > 0){
                System.out.println("Eliminacion  Datos Completa");
                JOptionPane.showMessageDialog(null, "Se elimino el registro correctamente");
            }

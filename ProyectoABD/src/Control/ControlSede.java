@@ -19,7 +19,7 @@ import java.sql.Connection;
 public class ControlSede {
     Connection con;
     
-    private String host = "192.168.1.70";
+    private String host = "192.168.1.72";
     private String port = "3306";
     private String dbName = "PruebaBD";
     private String userName = "primero";

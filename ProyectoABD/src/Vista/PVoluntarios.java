@@ -17,6 +17,7 @@ public class PVoluntarios extends javax.swing.JFrame {
      */
     public PVoluntarios() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -49,11 +50,11 @@ public class PVoluntarios extends javax.swing.JFrame {
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+            .addGap(0, 740, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addGap(0, 497, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Administrar Voluntarios");
@@ -175,7 +176,7 @@ public class PVoluntarios extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         ActualizarVoluntarios av= new ActualizarVoluntarios();
-        av.setSize(625,384);
+        av.setSize(650,500);
         av.setLocation(0,0);
         
         content.removeAll();

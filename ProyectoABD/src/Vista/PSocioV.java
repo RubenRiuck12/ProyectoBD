@@ -1,17 +1,14 @@
 package Vista;
 
 import java.awt.BorderLayout;
-<<<<<<< HEAD:ProyectoABD/src/Vista/PSocioV.java
-=======
 
-public class SocioV extends javax.swing.JFrame {
->>>>>>> de6b380d7ab312fff8e3dffa1ff5193949dfa08d:ProyectoABD/src/Vista/SocioV.java
 
 public class PSocioV extends javax.swing.JFrame {
 
+
     public PSocioV() {
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
     }
     
     //Codigo GUI
@@ -67,14 +64,14 @@ public class PSocioV extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 460, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 440));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 460));
 
         jMenuBarSocios.setBackground(new java.awt.Color(0, 0, 255));
         jMenuBarSocios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -141,18 +138,7 @@ public class PSocioV extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void MenuTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTablaActionPerformed
-        SociosT2 st= new SociosT2();
-        st.setSize(599,440);
-        st.setLocation(0,0);
-
-        jPanel1.removeAll();
-        jPanel1.add(st, BorderLayout.CENTER);
-        jPanel1.revalidate();
-        jPanel1.repaint();
-    }//GEN-LAST:event_MenuTablaActionPerformed
-
+                                    
     //Actions
     private void UpdateDeleteSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateDeleteSActionPerformed
 
@@ -169,15 +155,19 @@ public class PSocioV extends javax.swing.JFrame {
         jPanel1.repaint();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
-<<<<<<< HEAD:ProyectoABD/src/Vista/PSocioV.java
     private void MenuTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuTablaActionPerformed
-        ListaSocios st = new ListaSocios();
-        PanelT.add(st);
-        st.setVisible(true);
+        SociosT2 st= new SociosT2();
+        st.setSize(599,440);
+        st.setLocation(0,0);
+
+        jPanel1.removeAll();
+        jPanel1.add(st, BorderLayout.CENTER);
+        jPanel1.revalidate();
+        jPanel1.repaint();
     }//GEN-LAST:event_MenuTablaActionPerformed
-=======
+
     private void MenuRS1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuRS1ActionPerformed
-        RegistrarS2 rs= new RegistrarS2();
+        RegistrarSocios rs= new RegistrarSocios();
         rs.setSize(599,440);
         rs.setLocation(0,0);
 
@@ -196,18 +186,6 @@ public class PSocioV extends javax.swing.JFrame {
         jPanel1.add(cs, BorderLayout.CENTER);
         jPanel1.revalidate();
         jPanel1.repaint();
-    }//GEN-LAST:event_MenuPagoActionPerformed
->>>>>>> de6b380d7ab312fff8e3dffa1ff5193949dfa08d:ProyectoABD/src/Vista/SocioV.java
-
-    private void MenuPagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPagoActionPerformed
-        RegistroPSocios ru= new RegistroPSocios();
-        ru.setSize(625,384);
-        ru.setLocation(0,0);
-        
-        PanelT.removeAll();
-        PanelT.add(ru, BorderLayout.CENTER);
-        PanelT.revalidate();
-        PanelT.repaint();
     }//GEN-LAST:event_MenuPagoActionPerformed
 
     private void MenuCuotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuCuotaActionPerformed
@@ -237,14 +215,7 @@ public class PSocioV extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(PSocioV.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
