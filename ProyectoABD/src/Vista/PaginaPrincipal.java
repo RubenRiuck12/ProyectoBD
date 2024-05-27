@@ -4,18 +4,16 @@
  */
 package Vista;
 
-import java.awt.BorderLayout;
-
 /**
  *
  * @author aleja
  */
-public class PSeguridad extends javax.swing.JFrame {
+public class PaginaPrincipal extends javax.swing.JFrame {
 
     /**
-     * Creates new form Seguridad
+     * Creates new form PaginaPrincipal
      */
-    public PSeguridad() {
+    public PaginaPrincipal() {
         initComponents();
     }
 
@@ -46,17 +44,17 @@ public class PSeguridad extends javax.swing.JFrame {
         );
         contentLayout.setVerticalGroup(
             contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 381, Short.MAX_VALUE)
+            .addGap(0, 357, Short.MAX_VALUE)
         );
 
-        jMenu1.setText("Administrar Usuarios");
+        jMenu1.setText("Administrador");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu1ActionPerformed(evt);
             }
         });
 
-        jMenuItem1.setText("Registrar");
+        jMenuItem1.setText("Usuarios tecnicos");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -64,7 +62,7 @@ public class PSeguridad extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setText("Actualizar");
+        jMenuItem2.setText("Usuarios del Sistema");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -90,38 +88,24 @@ public class PSeguridad extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        ActualizarUsuarios au= new ActualizarUsuarios();
-        au.setSize(625,384);
-        au.setLocation(0,0);
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        UsuariosSistema us= new UsuariosSistema();
+        
+        us.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-        content.removeAll();
-        content.add(au, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        RegistrarUsuarios ru= new RegistrarUsuarios();
-        ru.setSize(630,404);
-        ru.setLocation(0,0);
-
-        content.removeAll();
-        content.add(ru, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ActualizarUsuarios au= new ActualizarUsuarios();
-        au.setSize(625,384);
-        au.setLocation(0,0);
+        UsuariosTecnicos ut= new UsuariosTecnicos();
         
-        content.removeAll();
-        content.add(au, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+        ut.setVisible(true);
+        
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -140,21 +124,20 @@ public class PSeguridad extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PSeguridad.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PaginaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PSeguridad().setVisible(true);
+                new PaginaPrincipal().setVisible(true);
             }
         });
     }
