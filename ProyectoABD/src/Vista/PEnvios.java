@@ -80,14 +80,11 @@ public class PEnvios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        RegistroEnvios re= new RegistroEnvios();
-        re.setSize(625,384);
-        re.setLocation(0,0);
+        RegistroEnvios1 re= new RegistroEnvios1();
         
-        content.removeAll();
-        content.add(re, BorderLayout.CENTER);
-        content.revalidate();
-        content.repaint();
+        re.setVisible(true);
+        
+        this.dispose();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
